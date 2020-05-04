@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>只是主页</div>
+    <table>
+        <thead>
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+            </tr>
+        </thead>
+        <tr th:each="people:${peoples}">
+            <td th:text="${people.getId()}"></td>
+            <td th:text="${people.getName()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

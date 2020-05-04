@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
+</head>
+<script>
+    var noticSocket= function () {
+        //连接服务器端点
+        var s=new SockJS('/wsuser');
+        //客户端
+        var stompClient =Stomp.over(s);
+        stompClient.connect({},function () {
+            console.log('notice socket connection');
+            alert("恭喜你连接上了socket")
+            //订阅消息地址
+            stompClient.subscribe('/user/queue/customer',function (data) {
+                $('#receive').html(data.body);
+            });
+        });
+    };
+    noticSocket();
+
+</script>
+<body>
+<h1><span id="receive">等待接收消息</span></h1>
+</body>
+</html>

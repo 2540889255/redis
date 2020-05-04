@@ -1,0 +1,42 @@
+.topfont{
+    color: #6c757d;
+    font-size: 15px;
+}
+
+
+.sider{
+    background-color: #383838 ;
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+.siders{
+    height: 50px;
+    color: white;
+    padding-top: 6%;
+    border-top:1px solid white;
+}
+.sidersimg{
+    margin-left: 6px;
+    width: 14px;
+    height: 14px;
+}
+.sidersfont{
+    color: white;
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+.gryfont{
+    font-size: large;
+    color: #6c757d;
+}
+
+.headfont{
+
+}
+
+.rightheadfont{
+    font-size: 22px;
+
+}
