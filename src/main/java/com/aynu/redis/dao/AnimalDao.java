@@ -1,9 +1,7 @@
-package com.aynu.redis.Dao;
+package com.aynu.redis.dao;
 
 import com.aynu.redis.pojo.Animal;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -25,4 +23,7 @@ public interface AnimalDao {
 
     @Select("select * from animal where id=#{id}")
     public Animal getAnimal(@Param("id") Long id);
+
+
+
 }

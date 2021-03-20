@@ -1,4 +1,4 @@
-package com.aynu.redis.Dao;
+package com.aynu.redis.dao;
 
 import com.aynu.redis.pojo.Animal;
 

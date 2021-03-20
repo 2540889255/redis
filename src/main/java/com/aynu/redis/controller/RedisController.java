@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,13 +31,14 @@ public class RedisController {
 
         k1.append("111");
         Object o = stringRedisTemplate.opsForHash().get("hash2", "key1");
-        System.out.println((String) o);
+
+        System.out.println(o);
         List list=new ArrayList();
         list.add(o);;
         return list;
     }
 
-    @RequestMapping("zset")
+    @RequestMapping("/zset")
     @ResponseBody
     public Map<String,Object> testZset(){
         Set<ZSetOperations.TypedTuple<String>> typedTuples=new HashSet<>();

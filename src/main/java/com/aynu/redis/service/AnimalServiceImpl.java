@@ -1,12 +1,13 @@
 package com.aynu.redis.service;
 
-import com.aynu.redis.Dao.AnimalDao;
+import com.aynu.redis.dao.AnimalDao;
 import com.aynu.redis.pojo.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -26,9 +27,10 @@ public class AnimalServiceImpl implements AnimalService{
     }
 
     @Override
-    @Transactional
+    @Transactional(isolation= Isolation.DEFAULT )
     @Cacheable(value = "redisCache",key = "'redis_user'+#id")
     public Animal insertAnimal(Animal animal) {
+
         animalDao.insertAnimal(animal);
         return animal;
     }

@@ -2,6 +2,7 @@ package com.aynu.redis;
 
 import com.aynu.redis.service.UserService;
 import com.aynu.redis.service.UserServiceImpl;
+import com.aynu.redis.test.TestRedis;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,7 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +26,7 @@ import javax.annotation.PostConstruct;
 
 @EnableCaching
 @SpringBootApplication
+@EnableScheduling
 //@ComponentScan(basePackages = "com.aynu.redis.Dao")
 //@MapperScan(basePackages = "com.aynu.redis",annotationClass = Repository.class)
 public class RedisApplication {
@@ -34,7 +37,9 @@ public class RedisApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(RedisApplication.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(RedisApplication.class, args);
+
+
     }
 
 

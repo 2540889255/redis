@@ -1,6 +1,6 @@
 package com.aynu.redis.service;
 
-import com.aynu.redis.Dao.UserDao;
+import com.aynu.redis.dao.UserDao;
 import com.aynu.redis.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

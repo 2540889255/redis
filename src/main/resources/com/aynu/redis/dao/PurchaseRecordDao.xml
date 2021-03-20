@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aynu.redis.dao.PurchaseRecordDao">
+
+
+    <insert id="insertPurchaseRecord" parameterType="com.aynu.redis.pojo.PurchaseRecordPo">
+        insert into
+        t_purchase_record
+        (id,user_id,product_id,price,quantity,sum,purchase_date,note)
+        value
+        (#{id},#{userId},#{productId},#{price},#{quantity},#{sum},now(),#{note});
+    </insert>
+</mapper>
